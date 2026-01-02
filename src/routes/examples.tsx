@@ -38,7 +38,8 @@ function ExamplesPage() {
         {!supabaseReady && (
           <div className="mb-8 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Supabase not configured.</strong> Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to .env to see live examples.
+              <strong>Supabase not configured.</strong> Add VITE_SUPABASE_URL and
+              VITE_SUPABASE_ANON_KEY to .env to see live examples.
             </p>
           </div>
         )}
@@ -91,7 +92,11 @@ function DataFetchingExample() {
         </pre>
         <div className="mt-4 rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
           <p className="text-sm text-zinc-500">
-            {isLoading ? 'Loading...' : error ? `Error: ${error.message}` : `Result: ${JSON.stringify(data ?? 'Configure Supabase to see data')}`}
+            {isLoading
+              ? 'Loading...'
+              : error
+                ? `Error: ${error.message}`
+                : `Result: ${JSON.stringify(data ?? 'Configure Supabase to see data')}`}
           </p>
         </div>
       </CardContent>
@@ -217,12 +222,13 @@ const { data } = await supabase.functions.invoke('hello', {
           <Button onClick={callEdgeFunction} disabled={loading || !isSupabaseConfigured()}>
             {loading ? 'Calling...' : 'Call Edge Function'}
           </Button>
-          {result && (
-            <code className="text-sm text-zinc-600 dark:text-zinc-400">{result}</code>
-          )}
+          {result && <code className="text-sm text-zinc-600 dark:text-zinc-400">{result}</code>}
         </div>
         <p className="mt-4 text-sm text-zinc-500">
-          Create with: <code className="rounded bg-zinc-200 px-1 dark:bg-zinc-800">supabase functions new hello</code>
+          Create with:{' '}
+          <code className="rounded bg-zinc-200 px-1 dark:bg-zinc-800">
+            supabase functions new hello
+          </code>
         </p>
       </CardContent>
     </Card>
@@ -265,4 +271,3 @@ function RealtimeExample() {
     </Card>
   )
 }
-

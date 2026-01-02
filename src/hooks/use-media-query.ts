@@ -9,7 +9,7 @@ export function useMediaQuery(query: string): boolean {
   useEffect(() => {
     const mediaQuery = window.matchMedia(query)
     const handler = (e: MediaQueryListEvent) => setMatches(e.matches)
-    
+
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
   }, [query])
